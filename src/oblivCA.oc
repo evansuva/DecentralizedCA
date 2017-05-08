@@ -455,7 +455,7 @@ void signCertificate(void* args){
 
   //2. Compute Q=dG
   //curveMult(&Q_x, &Q_y, g_x, g_y, pk, a, p);
-  curveMultMontgomeryLadder(&R_x, &R_y, g_x, g_y, k, a, p);
+  curveMult(&R_x, &R_y, g_x, g_y, k, a, p);
 
   //3: r = Q_x mod n  
   obig_div_mod(&tmp, &r, R_x, n);
