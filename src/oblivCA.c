@@ -9,7 +9,7 @@ int main(int argc,char *argv[]){
   ProtocolDesc pd;
   protocolIO io;
   clock_t start, end;
-  double cpu_time_used;
+  double time_used;
   int party;
 
   //input curve parameters: secp192k1
