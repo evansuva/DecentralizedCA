@@ -57,14 +57,14 @@ int main(int argc,char *argv[]){
   memcpy(io.n, n_hexstring, MAXN);
   memcpy(io.e, e_hexstring, E_LENGTH);
 
-  start = clock();
+  start = wallClock();
   setCurrentParty(&pd, (remote_host ? 2 : 1));
   execDualexProtocol(&pd, signCertificate, &io);
   cleanupProtocol(&pd);
-  end = clock();
+  end = wallClock();
 
-  cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-  fprintf(stderr, "\nParty %d, Elapsed Time: %f seconds, \n", party, cpu_time_used);
+  time_used = ((double) (end - start)) / 3600;
+  fprintf(stderr, "\nParty %d, Elapsed Time: %f hours, \n", party, time_used);
 
   if(!io.RisZero)
     fprintf(stderr, "\nError: r is zero, Please retry with different k\n");
